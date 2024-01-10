@@ -1,0 +1,345 @@
+@import "./vars.scss";
+
+.page-layout {
+  background-color: $primary-color;
+  min-height: 100vh;
+}
+
+.TextWithCircle {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  font-family: $ff-abel;
+  font-size: 29px;
+  &.light-color {
+    color: #fff;
+    border-color: #fff;
+  }
+  &.dark-color {
+    color: $primary-color-dark;
+    .TextWithCircle__circle {
+      border-color: $primary-color-dark;
+    }
+  }
+  &__left,
+  &__right {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  &__left {
+    text-align: right;
+  }
+}
+
+.TextWithCircle__circle {
+  border-radius: 100%;
+  border: 1px solid #fff;
+  position: relative;
+  opacity: 0;
+  &__inner {
+    background-color: $secondary-color;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.AnimatedLink {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    height: 1px;
+    left: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &::before {
+    right: 0;
+    background-color: #fff;
+  }
+  &::after {
+    right: 100%;
+    background-color: $secondary-color;
+  }
+
+  &:hover::after {
+    right: 0;
+  }
+
+  &.--simpler {
+    &::before,
+    &::after {
+      bottom: -5px;
+    }
+    &::before {
+      background-color: transparent;
+    }
+  }
+
+  &.--active {
+    &::after {
+      right: 0;
+    }
+  }
+}
+
+.horizontal-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 1344px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  &__shape {
+    width: 14px;
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &--left {
+      position: relative;
+      right: -1px;
+    }
+    &--right {
+      position: relative;
+      left: -1px;
+    }
+  }
+
+  &__line {
+    height: 1px;
+    background-color: #fff;
+    transition: all 1s ease-in-out;
+    // width: calc(100% - 28px - 50px);
+    width: 20px;
+  }
+
+  &:hover &__line {
+    width: calc(100% - 28px);
+  }
+}
+
+.input-comp {
+  width: 100%;
+  position: relative;
+  &__input {
+    background-color: #fff0;
+    border: none;
+    outline: none;
+    font-size: 31px;
+    font-family: $ff-bebas;
+    color: $secondary-color;
+    width: calc(100% - 40px);
+    &::placeholder {
+      color: #fff;
+      opacity: 1;
+    }
+    &:focus + div {
+      background-color: $secondary-color;
+    }
+  }
+  &__underline {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    margin-top: 24px;
+    border-radius: 2px;
+    transition: background-color 0.5s ease-in-out;
+  }
+  &__arrow__container {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    top: 0;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover {
+      background-color: #fff1;
+    }
+    &:active {
+      background-color: #fff3;
+    }
+    &__arrow {
+      position: relative;
+      left: 2px;
+    }
+  }
+}
+
+.card {
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-color-light;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+  min-width: 300px;
+  width: 440px;
+  max-width: 85vw;
+  // cursor: pointer;
+  // &:hover {
+  //   background-color: $secondary-color;
+  // }
+  // &:active {
+  //   background-color: $secondary-color-active;
+  //   transition: all 0.1s ease-in-out;
+  // }
+  &--active {
+    background-color: $secondary-color;
+
+    // cursor: unset;
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+  &__number {
+    margin-bottom: 15px;
+  }
+  &__title {
+    font-size: 60px;
+    font-family: $ff-bebas;
+    line-height: 50px;
+    margin-bottom: 36px;
+    color: #fff;
+  }
+  &__description {
+    font-family: $ff-roboto;
+    font-size: 22px;
+    font-weight: 300;
+    margin-top: auto;
+    color: #fff;
+  }
+}
+
+.arrow-btn {
+  $btnDim: 50px;
+  min-width: $btnDim;
+  max-width: $btnDim;
+  min-height: $btnDim;
+  max-height: $btnDim;
+  width: $btnDim;
+  height: $btnDim;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff0;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  user-select: none;
+  &--left .arrow {
+    position: relative;
+    right: 3px;
+  }
+  &--right .arrow {
+    position: relative;
+    left: 3px;
+  }
+  &:hover {
+    background-color: #fff2;
+  }
+  &:active {
+    background-color: #fff5;
+  }
+}
+
+.abt-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  & > span {
+    position: relative;
+    opacity: 0;
+  }
+}
+.hs-wrapper {
+  position: relative;
+  min-height: fit-content;
+  min-height: 90vh;
+  margin-top: 20vh;
+  width: 100%;
+  .horizontal-scroll-title {
+    color: #fff;
+    text-transform: uppercase;
+    font-family: $ff-bebas;
+    pointer-events: none;
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -100px;
+  }
+  .horizontal-scroll-header {
+    position: absolute;
+    left: 10vw;
+    top: -100px;
+    z-index: 3;
+  }
+  .horizontal-scroll-img-blur {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    // transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
+    z-index: 2;
+  }
+}
+
+.horizontal-scroll-wrapper {
+  overflow-x: hidden;
+  z-index: 4;
+
+  .horizontal-scroll-container {
+    display: flex;
+    gap: 3vw;
+    flex-wrap: nowrap;
+    position: relative;
+    z-index: 5;
+    overflow-x: hidden;
+    width: fit-content;
+    min-height: fit-content;
+    height: fit-content;
+    max-height: auto;
+    padding-left: 100vw;
+    padding-right: 100vw;
+
+    & > * {
+      min-width: 33vw;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Media queries >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// @media screen and (max-width: 992px) {
+//   .card {
+//     width: 90%;
+//     &__title {
+//       font-size: 45px;
+//     }
+//   }
+// }
+// @media screen and (max-width: 576px) {
+//   .card {
+//     width: 95%;
+//     &__title {
+//       font-size: 35px;
+//     }
+//   }
+// }

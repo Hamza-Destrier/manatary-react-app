@@ -1,0 +1,240 @@
+@import "./vars.scss";
+
+.services-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  &__content {
+    padding-top: 30px;
+    & > * {
+      width: 90%;
+      max-width: 1344px;
+      margin: 0 auto;
+      &:nth-child(6) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    .blur-img {
+      opacity: 0.5;
+      position: absolute;
+      pointer-events: none;
+      z-index: 3;
+      width: unset;
+      max-width: unset;
+      margin: unset;
+      &--1 {
+        left: 0vw;
+        top: -200px;
+        scale: 0.7;
+      }
+      &--2 {
+        right: -25vw;
+        top: 100vh;
+        scale: 0.7;
+      }
+      &--3 {
+        left: -25vw;
+        top: 200vh;
+        scale: 0.7;
+      }
+    }
+  }
+}
+
+.hr-space-container {
+  min-height: 30vh;
+}
+
+.sp-hero-section {
+  // padding-top: 50px;
+  min-height: calc(100vh - 90px);
+  color: #fff;
+  font-size: 40px;
+  font-family: $ff-bebas;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 5;
+  .big-text {
+    font-size: 180px;
+    line-height: 140px;
+  }
+  .sph-row--1 {
+    display: flex;
+    align-items: flex-end;
+    gap: 80px;
+    margin-bottom: 100px;
+    .big-text {
+      .line-2 {
+        text-align: right;
+      }
+    }
+    .row1-text {
+      font-size: 18px;
+      font-family: $ff-roboto;
+      font-weight: 300;
+      width: 400px;
+      padding-right: 120px;
+      position: relative;
+      bottom: 50px;
+    }
+  }
+  .sph-row--2 {
+    text-align: right;
+    position: relative;
+    display: flex;
+
+    .big-text {
+      position: relative;
+      z-index: 2;
+      width: calc(100% - 400px);
+      span {
+        background-color: yellow;
+      }
+    }
+    .bg-box {
+      z-index: 1;
+      position: absolute;
+      width: 50vw;
+      height: 180px;
+      right: 30px;
+      top: 10px;
+      background-color: $secondary-color;
+    }
+    .animation-object {
+      width: 400px;
+      text-align: center;
+      position: relative;
+      &__blur-img {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -40%);
+        pointer-events: none;
+      }
+    }
+  }
+  .sph-row--3 {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.selected-content-section {
+  width: 100%;
+  max-width: 100%;
+  padding: 120px 0;
+  color: #fff;
+  min-height: 100vh;
+  font-family: $ff-bebas;
+  &__title {
+    width: 90%;
+    max-width: 1344px;
+    margin: 0 auto;
+    font-size: 180px;
+    line-height: 150px;
+    margin-bottom: 60px;
+    .title_row--1 {
+      color: $secondary-color;
+    }
+    .title_row--2 {
+      padding-left: 120px;
+    }
+  }
+  &__features {
+    .features-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 55px;
+    }
+  }
+}
+
+.filler-container {
+  padding: 120px 0;
+  font-size: 120px;
+  line-height: 100px;
+  font-family: $ff-bebas;
+  color: #fff;
+  position: relative;
+  &__img {
+    pointer-events: none;
+    opacity: 0.3;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-100%, -50%);
+    z-index: 1;
+  }
+  &__text {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Media queries >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+@media screen and (max-width: 992px) {
+  .sp-hero-section {
+    .big-text {
+      font-size: 18vw;
+      line-height: 18vw;
+    }
+    .sph-row--1 {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 60px;
+      margin-bottom: 60px;
+      .big-text {
+        .line-2 {
+          text-align: left;
+        }
+      }
+    }
+    .bg-box {
+      display: none;
+    }
+
+    .sph-row--2 {
+      display: block;
+      text-align: left;
+      .big-text {
+        width: 100%;
+      }
+      .bg-box {
+        left: 30px;
+        top: 100px;
+      }
+      .animation-object {
+        text-align: left;
+        * {
+          font-size: 20px !important;
+        }
+      }
+    }
+    .sph-row--3 {
+      justify-content: flex-start;
+    }
+  }
+
+  .selected-content-section {
+    padding: 60px 0;
+    &__title {
+      font-size: 18vw;
+      line-height: 20vw;
+      .title_row--2 {
+        padding-left: 0;
+      }
+    }
+  }
+  .filler-container {
+    padding: 5vw 0;
+    font-size: 18vw;
+    line-height: 18vw;
+  }
+}
