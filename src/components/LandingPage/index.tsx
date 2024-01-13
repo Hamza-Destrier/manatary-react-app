@@ -20,7 +20,7 @@ const LandingPage = () => {
         <WhatWeDo />
         <HorizontalLine />
         {/* Blogs section */}
-        {/* <HorizontalScroll
+        <HorizontalScroll
           cards={ALL_BLOGS.map(({ details }, i) => ({
             title: details.title,
             description: details.subTitle,
@@ -30,14 +30,14 @@ const LandingPage = () => {
           titleFontSize={500}
           blurImg="white"
           headerTitle="Blogs"
-        /> */}
-        <HorizontalScroll
+        />
+        {/* <HorizontalScroll
           cards={ALL_BLOGS.map(({ details }, i) => ({
             title: details.title,
             description: details.subTitle,
             headerText: `Blog No.${i + 1}`,
           }))}
-        />
+        /> */}
         <HorizontalLine />
         {/* blur imgs */}
         {[1, 2, 3].map((n) => {

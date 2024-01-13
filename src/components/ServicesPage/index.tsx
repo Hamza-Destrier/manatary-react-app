@@ -84,19 +84,19 @@ const index = () => {
           <HorizontalLine />
         </div>
         {/* Benefit section */}
-        {/* <HorizontalScroll
+        <HorizontalScroll
           cards={ALL_SERVICES[selectedServiceIndex].benefit.map(
             ({ description, title }) => ({ description, title })
           )}
           bgTitle="BENIFITS"
           titleFontSize={250}
           blurImg="green"
-        /> */}
-        <HorizontalScroll
+        />
+        {/* <HorizontalScroll
           cards={ALL_SERVICES[selectedServiceIndex].benefit.map(
             ({ description, title }) => ({ description, title })
           )}
-        />
+        /> */}
         <HorizontalLine />
         <Filler />
 
