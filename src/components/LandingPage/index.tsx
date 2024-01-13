@@ -8,7 +8,6 @@ import blurImg from "../../../public/assets/common/blur-img.png";
 import Image from "next/image";
 import PageLayout from "../Elements/PageLayout";
 import HorizontalLine from "../Elements/HorizontalLine";
-import Blogs from "./sections/Blogs";
 import { ALL_BLOGS } from "../Blogs/blogsData";
 import HorizontalScroll from "../Elements/HorizontalScroll";
 
@@ -21,7 +20,7 @@ const LandingPage = () => {
         <WhatWeDo />
         <HorizontalLine />
         {/* Blogs section */}
-        <HorizontalScroll
+        {/* <HorizontalScroll
           cards={ALL_BLOGS.map(({ details }, i) => ({
             title: details.title,
             description: details.subTitle,
@@ -31,7 +30,13 @@ const LandingPage = () => {
           titleFontSize={500}
           blurImg="white"
           headerTitle="Blogs"
-
+        /> */}
+        <HorizontalScroll
+          cards={ALL_BLOGS.map(({ details }, i) => ({
+            title: details.title,
+            description: details.subTitle,
+            headerText: `Blog No.${i + 1}`,
+          }))}
         />
         <HorizontalLine />
         {/* blur imgs */}

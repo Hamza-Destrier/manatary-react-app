@@ -33,7 +33,7 @@ const SelectedContent: React.FC<Props> = ({
           <BigAnimatedHeading>{selectedTitle[1]}</BigAnimatedHeading>
         </div>
       </div>
-      <HorizontalScroll
+      {/* <HorizontalScroll
         cards={selectedFeatures.map(({ description, title }, i) => {
           return {
             description,
@@ -44,6 +44,15 @@ const SelectedContent: React.FC<Props> = ({
         headerTitle="Features"
         titleFontSize={250}
         blurImg="white"
+      /> */}
+      <HorizontalScroll
+        cards={selectedFeatures.map(({ description, title }, i) => {
+          return {
+            description,
+            title,
+            headerText: "NO." + (i + 1),
+          };
+        })}
       />
     </div>
   );
