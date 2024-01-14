@@ -93,7 +93,7 @@ const BlogDetailsPage = () => {
 
   const blogRes = React.useMemo(() => {
     return ALL_BLOGS.find(({ id }) => id === Number(_params.blogId));
-  }, [_params.blogId, ALL_BLOGS]);
+  }, [_params.blogId]);
 
   if (!blogRes) {
     redirectToAllBlogsPage();

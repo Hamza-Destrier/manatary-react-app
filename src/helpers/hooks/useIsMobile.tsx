@@ -7,11 +7,10 @@ const useIsMobile = (dim = MOBILE_SCREEN_WIDTH): boolean => {
 
   useEffect(() => {
     setIsMobile(window.innerWidth < dim);
-    
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < dim);
     };
-
 
     // Attach the event listener
     window.addEventListener("resize", handleResize);
@@ -20,7 +19,7 @@ const useIsMobile = (dim = MOBILE_SCREEN_WIDTH): boolean => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []); // Empty dependency array ensures the effect runs only once during component mount
+  }, [dim]); // Empty dependency array ensures the effect runs only once during component mount
 
   return isMobile;
 };

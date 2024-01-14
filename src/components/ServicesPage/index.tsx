@@ -13,7 +13,6 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { MENUS } from "@/helpers/constants";
 import HorizontalScroll from "../Elements/HorizontalScroll";
-import gsap from "gsap";
 
 const index = () => {
   const selectedContentRef = React.useRef<HTMLDivElement>(null);
@@ -28,7 +27,7 @@ const index = () => {
     } = ALL_SERVICES[selectedServiceIndex];
 
     return { selectedDescription, selectedFeatures, selectedTitle };
-  }, [selectedServiceIndex, ALL_SERVICES]);
+  }, [selectedServiceIndex]);
 
   const menuItemId = useSearchParams().get("selected");
 

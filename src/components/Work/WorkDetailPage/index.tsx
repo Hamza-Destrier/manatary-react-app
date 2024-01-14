@@ -21,7 +21,7 @@ const WorkDetailPage = () => {
   };
   const workRes = React.useMemo(() => {
     return ALL_WORKS.find(({ id }) => id === Number(_params.workId));
-  }, [_params.workId, ALL_WORKS]);
+  }, [_params.workId]);
 
   if (!workRes) {
     redirectToAllWorksPage();

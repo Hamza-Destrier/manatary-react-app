@@ -14,7 +14,6 @@ interface Props {
   cards: ExtendedCardProps[];
   bgTitle?: string;
   headerTitle?: string;
-  scrollTowards?: "left" | "right";
   titleFontSize?: number;
 
   blurImg?: "white" | "green";
@@ -25,7 +24,6 @@ const BCN = `horizontal-scroll-`;
 
 const HorizontalScroll: React.FC<Props> = ({
   cards,
-  scrollTowards = "left",
   bgTitle,
   headerTitle,
   titleFontSize,
@@ -50,7 +48,6 @@ const HorizontalScroll: React.FC<Props> = ({
     const ctx = gsap.context(() => {
       const tween = gsap.to(containerEl, {
         x: () => getScrollAmount(),
-        duration: 3,
         ease: "none",
         smoothChildTiming: true,
       });
@@ -64,14 +61,14 @@ const HorizontalScroll: React.FC<Props> = ({
         animation: tween,
         scrub: 1,
         invalidateOnRefresh: true,
-        pinType: 'fixed'
+        pinType: "fixed",
       });
     });
 
     return () => {
       ctx.revert();
     };
-  }, [cards, scrollTowards]);
+  }, [cards]);
 
   return (
     <div className={styles["hs-wrapper"]} ref={wrapperRef}>

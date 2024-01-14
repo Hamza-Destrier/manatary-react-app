@@ -99,7 +99,7 @@ const TextWithCircle: React.FC<Props> = ({
         },
       });
     }
-  }, []);
+  }, [animationDelay]);
 
   return (
     <div

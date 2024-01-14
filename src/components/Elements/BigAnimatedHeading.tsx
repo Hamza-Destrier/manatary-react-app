@@ -52,7 +52,7 @@ const BigAnimatedHeading = ({
         toggleActions: "restart none reverse none",
       });
     }
-  }, [direction]);
+  }, [direction, delay, duration]);
 
   return (
     <span className={styles["abt-wrapper"]} ref={wrapperRef}>

@@ -210,7 +210,7 @@ const Hero = () => {
         },
         "<0.5"
       );
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className={styles["hero-section"]}>
