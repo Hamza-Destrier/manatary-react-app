@@ -108,7 +108,6 @@ const WhatWeDo = ({
               <div key={i} className={styles["col2-links"]}>
                 <AnimatedLink
                   {...menu}
-                  title={menu._id + "__" + menu.title}
                   link={isServicePage ? "" : menu.link}
                   onLinkClick={onLinkClick}
                   linkNumber={menu._id}
