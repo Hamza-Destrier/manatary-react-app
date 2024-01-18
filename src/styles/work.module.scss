@@ -3,7 +3,7 @@
 
 .work-page {
   min-height: calc(100vh - 90px - $vp-gap - $vp-gap);
-  padding: 20px 0;
+  padding: 20px 0 70px;
   color: #fff;
   font-family: $ff-bebas;
   position: relative;
@@ -187,13 +187,15 @@
         gap: 10px;
         cursor: pointer;
         & > span {
-          user-select: none;
           display: inline-block;
           min-width: 100px;
           display: flex;
           align-items: center;
           &:first-child {
             justify-content: flex-end;
+          }
+          &:last-child {
+            user-select: none;
           }
         }
         svg {
@@ -215,6 +217,7 @@
       gap: 50px;
       margin-top: 20px;
       min-height: 220px;
+      pointer-events: none;
       .project-tile {
         position: relative;
         $boxDims: 10px;
@@ -246,6 +249,7 @@
           width: 100%;
           opacity: 0;
           transform: translateY(20px);
+          color: #fff;
         }
         .project-tile__title,
         .project-tile__img {

@@ -17,6 +17,7 @@ import img3 from "../../../public/assets/work/hero-img-3.png";
 import img4 from "../../../public/assets/work/hero-img-4.png";
 import img5 from "../../../public/assets/work/hero-img-5.png";
 import gsap from "gsap";
+import ALL_WORKS from "./workData";
 // import { SCROLL_DOWN_EVENT } from "@/helpers/constants";
 
 const projectLink = "/work/1";
@@ -58,7 +59,9 @@ const allProjectsData = [
   },
 ];
 
-const projectsCount = allProjectsData.length;
+// const _allProjectsData = ALL_WORKS.map(({}) => ({}))
+
+const projectsCount = ALL_WORKS.length;
 
 const ThinArrow = ({
   isLeft = false,
@@ -253,7 +256,7 @@ const Work = () => {
 
     imageEl.style.transformOrigin = "center top";
 
-    outerImageEl.style.backgroundImage = `url(${allProjectsData[newIndex].featuredImage.src})`;
+    outerImageEl.style.backgroundImage = `url(${ALL_WORKS[newIndex].heroImage.src})`;
 
     const tl = gsap.timeline({
       defaults: {
@@ -337,6 +340,10 @@ const Work = () => {
       },
     });
 
+    const onComplete = () => {
+      allProjectsEl.style.pointerEvents = show ? "unset" : "none";
+    };
+
     const DIM = 150;
     const _DIM = 10;
 
@@ -344,13 +351,13 @@ const Work = () => {
       tl.fromTo(
         allProjectsEl.children,
         { ...getDims(_DIM), opacity: 0, duration: 0 },
-        { ...getDims(DIM), opacity: 1, duration: 1 }
+        { ...getDims(DIM), opacity: 1, duration: 1, onComplete }
       );
     } else {
       tl.fromTo(
         allProjectsEl.children,
         { ...getDims(DIM), opacity: 1, duration: 0 },
-        { ...getDims(_DIM), opacity: 0, duration: 1 }
+        { ...getDims(_DIM), opacity: 0, duration: 1, onComplete }
       );
     }
     setShowAll(show);
@@ -367,14 +374,14 @@ const Work = () => {
             <div
               className={styles["hero-featured-img-container"]}
               style={{
-                backgroundImage: `url(${allProjectsData[fImgIndex].featuredImage.src})`,
+                backgroundImage: `url(${ALL_WORKS[fImgIndex].heroImage.src})`,
               }}
               ref={fImageRefOuter}
             >
               <div
                 className={styles["hero-featured-img-container__inner"]}
                 style={{
-                  backgroundImage: `url(${allProjectsData[fImgIndex].featuredImage.src})`,
+                  backgroundImage: `url(${ALL_WORKS[fImgIndex].heroImage.src})`,
                 }}
                 ref={fImageRef}
               />
@@ -388,20 +395,20 @@ const Work = () => {
             </div>
             <div className={styles["project-title"]}>
               <div className={styles["project-title__title"]}>
-                <Link href={projectLink}>
+                <Link href={`/work/${ALL_WORKS[projectIndex].id}`}>
                   <div className={styles["pt-aniamtion-conatiner"]}>
                     <div
                       className={styles["pt-aniamtion-conatiner__curr"]}
                       ref={titleRef}
                     >
-                      {allProjectsData[projectIndex].title}
+                      {ALL_WORKS[projectIndex].title}
                     </div>
                   </div>
                 </Link>
               </div>
               <Link
                 className={styles["project-title__btn__container"]}
-                href={projectLink}
+                href={`/work/${ALL_WORKS[projectIndex].id}`}
                 ref={linkBtnRef}
               >
                 <div className={styles["project-title__btn"]}>
@@ -410,7 +417,7 @@ const Work = () => {
               </Link>
             </div>
             <div className={styles["project-types"]}>
-              {allProjectsData[projectIndex].tags.map((t, i) => (
+              {ALL_WORKS[projectIndex].tags.map((t, i) => (
                 <div
                   key={`${t}__${projectIndex}__${i}`}
                   className={styles["project-types__type"]}
@@ -443,16 +450,18 @@ const Work = () => {
             className={styles["work-page__footer__all-projects"]}
             ref={allProjectsRef}
           >
-            {allProjectsData.map(({ featuredImage, title }, i) => {
+            {ALL_WORKS.map(({ heroImage, title, id }, i) => {
               return (
-                <div key={i} className={styles["project-tile"]}>
-                  <div
-                    className={styles["project-tile__img"]}
-                    style={{
-                      backgroundImage: `url(${featuredImage.src})`,
-                    }}
-                  />
-                  <div className={styles["project-tile__title"]}>{title}</div>
+                <div className={styles["project-tile"]} key={i}>
+                  <Link href={"/work/" + id}>
+                    <div
+                      className={styles["project-tile__img"]}
+                      style={{
+                        backgroundImage: `url(${heroImage.src})`,
+                      }}
+                    />
+                    <div className={styles["project-tile__title"]}>{title}</div>
+                  </Link>
                 </div>
               );
             })}
