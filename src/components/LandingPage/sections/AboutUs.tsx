@@ -7,8 +7,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getScrollTriggerConfigs } from "@/helpers/animations";
 
 const MENUS = [
-  { title: "About Us", link: "#" },
-  { title: "Services", link: "#" },
+  { title: "Services", link: "/services" },
+  { title: "Contact Us", link: "/contact" },
 ];
 
 const getTween = (el: Element, isForLink = false) => {
