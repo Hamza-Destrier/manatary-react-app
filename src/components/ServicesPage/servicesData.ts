@@ -268,91 +268,44 @@ const s5Benefits: Benefit[] = [
 const s6Features: Feature[] = [
   {
     serviceId: 6,
-    title: "Strategic IT Planning",
-    description:
-      "Work with us to develop forward-thinking IT strategies that align with your business objectives.",
-  },
-  {
-    serviceId: 6,
-    title: "Infrastructure Optimization",
-    description:
-      "Enhance your IT infrastructure with optimizations that improve efficiency and reduce costs.",
-  },
-  {
-    serviceId: 6,
-    title: "Security and Compliance",
-    description:
-      "Implement robust security measures and comply with industry regulations to protect your business assets.",
-  },
-  {
-    serviceId: 6,
-    title: "Digital Transformation",
-    description:
-      "Guide your business through digital transformation with strategies that embrace modern technology and innovation.",
-  },
-];
-const s6Benefits: Benefit[] = [
-  {
-    serviceId: 6,
-    title: "Expert Guidance",
-    description:
-      "Receive guidance from seasoned professionals with a deep understanding of the IT sector.",
-  },
-  {
-    serviceId: 6,
-    title: "Cost-Efficiency",
-    description:
-      "Optimize your operations to realize cost savings and improve profitability.",
-  },
-  {
-    serviceId: 6,
-    title: "Innovation-Driven",
-    description:
-      "Embrace innovative solutions that position your business as a leader in the industry.",
-  },
-];
-
-const s7Features: Feature[] = [
-  {
-    serviceId: 7,
     title: "Cloud Migration",
     description:
       "Facilitate a smooth transition to the cloud with strategies that minimize downtime and ensure data safety.",
   },
   {
-    serviceId: 7,
+    serviceId: 6,
     title: "Infrastructure as a Service (IaaS)",
     description:
       "Implement IaaS solutions that offer scalable and flexible cloud computing infrastructure.",
   },
   {
-    serviceId: 7,
+    serviceId: 6,
     title: "Disaster Recovery",
     description:
       "Develop robust disaster recovery plans that safeguard your data and ensure business continuity in adverse situations.",
   },
   {
-    serviceId: 7,
+    serviceId: 6,
     title: "Cloud Security",
     description:
       "Enhance your data security with cloud solutions that offer advanced protection features and compliance with industry regulations.",
   },
 ];
-const s7Benefits: Benefit[] = [
+const s6Benefits: Benefit[] = [
   {
-    serviceId: 7,
+    serviceId: 6,
     title: "Operational Efficiency",
     description:
       "Achieve greater operational efficiency with cloud solutions that streamline processes and facilitate collaboration.",
   },
   {
-    serviceId: 7,
+    serviceId: 6,
     title: "Cost-Effectiveness",
     description:
       "Embrace cloud computing's cost-effective nature, reducing capital expenditure and achieving better ROI.",
   },
   {
-    serviceId: 7,
+    serviceId: 6,
     title: "Future-Ready Infrastructure",
     description:
       "Build an infrastructure that is prepared for the future, capable of adapting to evolving business needs.",
@@ -400,20 +353,13 @@ const service5: ServiceResponse = {
   features: s5Features,
   benefit: s5Benefits,
 };
-// const service6: ServiceResponse = {
-//   id: 6,
-//   title: ["Motion", "Designs"],
-//   description: "Description for Motion Designs",
-//   features: s6Features,
-//   benefit: s6Benefits,
-// };
-const service7: ServiceResponse = {
-  id: 7,
+const service6: ServiceResponse = {
+  id: 6,
   title: ["Cloud", "Solutions"],
   description:
     "As businesses migrate towards cloud-based infrastructures, Mantaray Digital is here to assist you in leveraging the myriad benefits of cloud computing. Our services are tailored to help you transition smoothly to a cloud infrastructure, enhancing operational efficiency and security.",
-  features: s7Features,
-  benefit: s7Benefits,
+  features: s6Features,
+  benefit: s6Benefits,
 };
 
 export const ALL_SERVICES = [
@@ -422,6 +368,5 @@ export const ALL_SERVICES = [
   service3,
   service4,
   service5,
-  // service6,
-  service7,
+  service6,
 ];

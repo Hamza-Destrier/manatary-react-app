@@ -34,11 +34,10 @@ const WhatWeDo = ({
   onLinkClick,
   selectedIndex,
   description,
-  scrollToSelectedContent
+  scrollToSelectedContent,
 }: Props) => {
   const allLinksRef = React.useRef<HTMLDivElement>(null);
   const col1Ref = React.useRef<HTMLDivElement>(null);
-
 
   React.useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -57,8 +56,6 @@ const WhatWeDo = ({
       ScrollTrigger.create(configs);
     });
   }, []);
-
-  
 
   return (
     <div className={styles["WhatWeDo-section"]}>
@@ -111,6 +108,7 @@ const WhatWeDo = ({
               <div key={i} className={styles["col2-links"]}>
                 <AnimatedLink
                   {...menu}
+                  title={menu._id + "__" + menu.title}
                   link={isServicePage ? "" : menu.link}
                   onLinkClick={onLinkClick}
                   linkNumber={menu._id}

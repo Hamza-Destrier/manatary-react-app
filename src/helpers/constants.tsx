@@ -2,18 +2,30 @@ export const SCROLL_DOWN_EVENT = `cstmevt-scroll-down`;
 
 export const BASE_SERVICES_LINK = "/services";
 
+interface IMenu {
+  _id: number;
+  title: string;
+  link: string;
+}
+
 const getFullServiceLink = (id: number) => {
   return BASE_SERVICES_LINK + "?selected=" + id;
 };
 
-export const MENUS = [
-  { _id: 0, title: "Web development", link: getFullServiceLink(0) },
-  { _id: 1, title: "Mobile App Development", link: getFullServiceLink(1) },
-  { _id: 2, title: "UI/UX Design", link: getFullServiceLink(2) },
-  { _id: 3, title: "E-Commerce Solutions", link: getFullServiceLink(3) },
-  { _id: 4, title: "IT Consultancy", link: getFullServiceLink(4) },
-  { _id: 5, title: "Cloud Solutions", link: getFullServiceLink(6) },
+const menus = [
+  "Web development",
+  "Mobile App Development",
+  "UI/UX Design",
+  "E-Commerce Solutions",
+  "IT Consultancy",
+  "Cloud Solutions",
 ];
+
+export const MENUS: IMenu[] = menus.map((title, i) => ({
+  _id: i + 1,
+  title,
+  link: getFullServiceLink(i + 1),
+}));
 
 export const SOCIAL_MENUS = [
   { title: "Linkedin", link: "#" },
