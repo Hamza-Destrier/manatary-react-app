@@ -80,6 +80,9 @@ const PageLayout: React.FC<Props> = ({
       y: menusY,
       ease: "power4.inOut",
       stagger: menusStagger,
+      onComplete: () => {
+        menusContainerEl.style.pointerEvents = opening ? "unset" : "none";
+      },
     });
 
     // social links tween
@@ -90,6 +93,9 @@ const PageLayout: React.FC<Props> = ({
       y: smlY,
       stagger: menusStagger / 5,
       duration: opening ? 0.5 : 0,
+      onComplete: () => {
+        socialMenusEl.style.pointerEvents = opening ? "unset" : "none";
+      },
     });
 
     // const d1 = opening ? "" : "<=0.1";
