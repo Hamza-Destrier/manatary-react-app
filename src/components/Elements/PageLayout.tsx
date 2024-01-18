@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { SOCIAL_MENUS, VP_GAP } from "@/helpers/constants";
 import useViewportHeight from "@/helpers/hooks/useViewportHeight";
 import AnimatedLink from "./AnimatedLink";
+import useIsMobile from "@/helpers/hooks/useIsMobile";
 
 interface Props {
   children: GenericElements;
@@ -22,6 +23,7 @@ const PageLayout: React.FC<Props> = ({
   hideFooter = false,
 }) => {
   const [isExpanded, setIsExpanded] = React.useState(false);
+  const isMobile = useIsMobile();
   const vh = useViewportHeight();
 
   const pageLayoutRef = React.useRef<HTMLDivElement>(null);
@@ -32,7 +34,6 @@ const PageLayout: React.FC<Props> = ({
 
   const handleNavBtnClick = () => {
     const opening = !isExpanded;
-    console.log(`${opening ? "Opening" : "Closing"} the topbar`);
 
     const pageLayoutWrapperEl = pageLayoutWrapperRef.current;
     const pageLayoutEl = pageLayoutRef.current;
@@ -62,7 +63,8 @@ const PageLayout: React.FC<Props> = ({
     });
 
     // Wrapper animations
-    const containerTop = (opening ? vh / 1.5 : VP_GAP) + "px";
+    const containerTop =
+      (opening ? vh / (isMobile ? 1.15 : 1.5) : VP_GAP) + "px";
     const heightTween = gsap.to(pageLayoutWrapperEl, {
       top: containerTop,
       duration: 0.85,
