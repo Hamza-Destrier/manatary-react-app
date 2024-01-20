@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "@/styles/pagelayout.module.scss";
 import Image from "next/image";
-import mantarayLogo from "../../../../public/assets/common/mantaray-logo-white.png";
+// import mantarayLogo from "../../../../public/assets/common/mantaray-logo-white.png";
+import mantarayLogo from "../../../../public/assets/common/white-logo-full.svg";
 import { MENUS } from "@/helpers/constants";
 import AnimatedLink from "@/components/Elements/AnimatedLink";
 import TextWithCircle from "@/components/Elements/TextWithCircle";
