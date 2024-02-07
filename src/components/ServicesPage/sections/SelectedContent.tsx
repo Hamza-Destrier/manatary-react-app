@@ -41,7 +41,7 @@ const SelectedContent: React.FC<Props> = ({
             headerText: "NO." + (i + 1),
           };
         })}
-        headerTitle="Features"
+        bgTitle="Features"
         titleFontSize={250}
         blurImg="white"
       />

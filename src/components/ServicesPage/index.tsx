@@ -85,12 +85,27 @@ const index = () => {
         {/* Benefit section */}
         <HorizontalScroll
           cards={ALL_SERVICES[selectedServiceIndex].benefit.map(
-            ({ description, title }) => ({ description, title })
+            ({ description, title }, i) => {
+              return {
+                description,
+                title,
+                headerText: "NO." + (i + 1),
+              };
+            }
           )}
           bgTitle="BENIFITS"
           titleFontSize={250}
           blurImg="green"
         />
+        {/* <HorizontalScroll
+          cards={ALL_SERVICES[selectedServiceIndex].benefit.map(
+            ({ description, title }) => ({ description, title })
+          )}
+          bgTitle="BENIFITS"
+          titleFontSize={250}
+          blurImg="green"
+        /> */}
+
         {/* <HorizontalScroll
           cards={ALL_SERVICES[selectedServiceIndex].benefit.map(
             ({ description, title }) => ({ description, title })
