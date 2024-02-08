@@ -112,7 +112,7 @@ const WhatWeDo = ({
                   onLinkClick={onLinkClick}
                   linkNumber={menu._id}
                   nonRedirecting={isServicePage}
-                  isActive={i === selectedIndex}
+                  isActive={menu._id === selectedIndex}
                 />
               </div>
             );

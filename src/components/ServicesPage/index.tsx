@@ -20,13 +20,31 @@ const index = () => {
   const [selectedServiceIndex, setSelectedServiceIndex] = React.useState(0);
 
   const selectedCardProps = React.useMemo(() => {
+    const selectedService = ALL_SERVICES.find(
+      (service) => service.id === selectedServiceIndex
+    );
+
+    if (!selectedService)
+      return {
+        selectedDescription: "",
+        selectedFeatures: [],
+        selectedTitle: ["", ""] as [string, string],
+        selectedBenfits: [],
+      };
+
     const {
       description: selectedDescription,
       features: selectedFeatures,
       title: selectedTitle,
-    } = ALL_SERVICES[selectedServiceIndex];
+      benefit: selectedBenfits,
+    } = selectedService;
 
-    return { selectedDescription, selectedFeatures, selectedTitle };
+    return {
+      selectedDescription,
+      selectedFeatures,
+      selectedTitle,
+      selectedBenfits,
+    };
   }, [selectedServiceIndex]);
 
   const menuItemId = useSearchParams().get("selected");
@@ -39,10 +57,10 @@ const index = () => {
     const _menuItemId = Number(menuItemId);
 
     if (typeof _menuItemId == "number" && !isNaN(_menuItemId)) {
-      const linkIndex = MENUS.findIndex((m) => m._id == _menuItemId);
+      const linkId = MENUS.find((m) => m._id == _menuItemId)?._id || 0;
 
-      if (linkIndex > -1) {
-        setSelectedServiceIndex(linkIndex);
+      if (linkId > -1) {
+        setSelectedServiceIndex(linkId);
 
         // To handle the load error!
         setTimeout(() => {
@@ -66,9 +84,9 @@ const index = () => {
         <Hero />
         <WhatWeDo
           isServicePage
-          onLinkClick={(selectedLinkIndex?: number) => {
-            if (typeof selectedLinkIndex != "number") return;
-            setSelectedServiceIndex(selectedLinkIndex);
+          onLinkClick={(clickedLinkId?: number) => {
+            if (typeof clickedLinkId != "number") return;
+            setSelectedServiceIndex(clickedLinkId);
           }}
           selectedIndex={selectedServiceIndex}
           description={selectedCardProps.selectedDescription}
@@ -84,7 +102,7 @@ const index = () => {
         </div>
         {/* Benefit section */}
         <HorizontalScroll
-          cards={ALL_SERVICES[selectedServiceIndex].benefit.map(
+          cards={selectedCardProps.selectedBenfits.map(
             ({ description, title }, i) => {
               return {
                 description,
