@@ -24,7 +24,8 @@ const btnsData = [
   {
     insideText: "drop us a line",
     outsideText: "Compass Building, RAK, UAE",
-    link: "#",
+    link: "https://maps.app.goo.gl/DbKiPTtvGXHFGXMCA",
+    target: "_blank",
   },
 ];
 

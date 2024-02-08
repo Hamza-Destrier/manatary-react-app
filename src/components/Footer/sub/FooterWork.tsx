@@ -24,6 +24,7 @@ const FooterWork = () => {
             }}
             fontSize={100}
             textClass={styles["footer-work__content__title__text"]}
+            leftLink="/work"
           />
         </div>
         <div className={styles["footer-work__content__news-letter"]}>

@@ -38,6 +38,7 @@ const FooterServices = () => {
             }}
             fontSize={100}
             textClass={styles["footer-work__content__title__text"]}
+            leftLink="/services"
           />
         </div>
       </div>

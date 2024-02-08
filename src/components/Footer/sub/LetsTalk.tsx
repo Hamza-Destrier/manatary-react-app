@@ -11,10 +11,14 @@ const LetsTalkCard = ({
   headerText,
   footerText,
   img,
+  link,
+  linkTarget = "",
 }: {
   headerText: string;
   footerText: string;
   img: StaticImageData;
+  link: string;
+  linkTarget?: "_blank" | "";
 }) => {
   return (
     <div className={styles["lets-talk-card"]}>
@@ -27,6 +31,8 @@ const LetsTalkCard = ({
           textRight={footerText}
           fontSize={26}
           textClass={styles["talk-card-text"]}
+          rightLink={link}
+          rightLinkTarget={linkTarget}
         />
       </div>
     </div>
@@ -44,8 +50,9 @@ const LetsTalk = () => {
           <div className={`${styles["col"]} ${styles["col-1"]}`}>
             <LetsTalkCard
               headerText="Email Us At"
-              footerText="let'stalk@Mantaraydigital.tec"
+              footerText="letstalk@Mantaraydigital.tec"
               img={envelopIcon}
+              link="mailto:letstalk@Mantaraydigital.tec"
             />
           </div>
           <div className={`${styles["col"]} ${styles["col-2"]}`}></div>
@@ -54,6 +61,8 @@ const LetsTalk = () => {
               headerText="Whatsapp"
               footerText="+971 56 955 1452"
               img={chatIcon}
+              link="https://wa.me/971569551452"
+              linkTarget="_blank"
             />
           </div>
           <div className={`${styles["col"]} ${styles["col-4"]}`}></div>
@@ -62,6 +71,8 @@ const LetsTalk = () => {
               headerText="Visit us"
               footerText="Compass Building, RAK, UAE"
               img={pinIcon}
+              link="https://maps.app.goo.gl/DbKiPTtvGXHFGXMCA"
+              linkTarget="_blank"
             />
           </div>
         </div>

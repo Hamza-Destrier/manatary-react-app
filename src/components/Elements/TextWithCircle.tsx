@@ -3,6 +3,7 @@ import styles from "@/styles/elements.module.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import BigAnimatedHeading from "./BigAnimatedHeading";
+import Link from "next/link";
 
 const getDimObj = (dim: number) => {
   return {
@@ -32,6 +33,10 @@ interface Props {
   animationDelay?: number;
   onLeftTextClick?: (x?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onRightTextClick?: (x?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  leftLink?: string;
+  rightLink?: string;
+  leftLinkTarget?: "_blank" | "";
+  rightLinkTarget?: "_blank" | "";
 }
 
 const TextWithCircle: React.FC<Props> = ({
@@ -51,6 +56,10 @@ const TextWithCircle: React.FC<Props> = ({
   animationDelay = 0,
   onLeftTextClick,
   onRightTextClick,
+  leftLink,
+  rightLink,
+  leftLinkTarget = "",
+  rightLinkTarget = "",
 }) => {
   const outerCircleRef = React.useRef<HTMLDivElement>(null);
   const innerCircleRef = React.useRef<HTMLDivElement>(null);
@@ -118,7 +127,20 @@ const TextWithCircle: React.FC<Props> = ({
           onClick={onLeftTextClick}
         >
           <BigAnimatedHeading direction="left" delay={animationDelay}>
-            {textLeft}
+            {typeof leftLink === "string" && leftLink.length > 0 ? (
+              <Link
+                href={leftLink}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
+                target={leftLinkTarget}
+              >
+                {textLeft}
+              </Link>
+            ) : (
+              textLeft
+            )}
           </BigAnimatedHeading>
         </div>
       )}
@@ -146,7 +168,20 @@ const TextWithCircle: React.FC<Props> = ({
           onClick={onRightTextClick}
         >
           <BigAnimatedHeading direction="right" delay={animationDelay}>
-            {textRight}
+            {typeof rightLink === "string" && rightLink.length > 0 ? (
+              <Link
+                href={rightLink}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
+                target={rightLinkTarget}
+              >
+                {textRight}
+              </Link>
+            ) : (
+              textRight
+            )}
           </BigAnimatedHeading>
         </div>
       )}
