@@ -17,20 +17,12 @@ import HorizontalScroll from "../Elements/HorizontalScroll";
 const index = () => {
   const selectedContentRef = React.useRef<HTMLDivElement>(null);
 
-  const [selectedServiceIndex, setSelectedServiceIndex] = React.useState(0);
+  const [selectedServiceIndex, setSelectedServiceIndex] = React.useState(1);
 
   const selectedCardProps = React.useMemo(() => {
-    const selectedService = ALL_SERVICES.find(
-      (service) => service.id === selectedServiceIndex
-    );
-
-    if (!selectedService)
-      return {
-        selectedDescription: "",
-        selectedFeatures: [],
-        selectedTitle: ["", ""] as [string, string],
-        selectedBenfits: [],
-      };
+    const selectedService =
+      ALL_SERVICES.find((service) => service.id === selectedServiceIndex) ||
+      ALL_SERVICES[0];
 
     const {
       description: selectedDescription,
@@ -57,7 +49,7 @@ const index = () => {
     const _menuItemId = Number(menuItemId);
 
     if (typeof _menuItemId == "number" && !isNaN(_menuItemId)) {
-      const linkId = MENUS.find((m) => m._id == _menuItemId)?._id || 0;
+      const linkId = MENUS.find((m) => m._id == _menuItemId)?._id || 1;
 
       if (linkId > -1) {
         setSelectedServiceIndex(linkId);
