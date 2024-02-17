@@ -28,11 +28,11 @@ export const MENUS: IMenu[] = menus.map((title, i) => ({
 }));
 
 export const SOCIAL_MENUS = [
-  { title: "Linkedin", link: "#" },
-  { title: "Instagram", link: "#" },
-  { title: "Twitter", link: "#" },
-  { title: "Behance", link: "#" },
-  { title: "Dribble", link: "#" },
+  { title: "Linkedin", link: "https://www.instagram.com/mantaraydigital/" },
+  { title: "Instagram", link: "https://www.facebook.com/mantaraydigital" },
+  // { title: "Twitter", link: "#" },
+  // { title: "Behance", link: "#" },
+  // { title: "Dribble", link: "#" },
 ];
 
 export const VP_GAP = 10;
