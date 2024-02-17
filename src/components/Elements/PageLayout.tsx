@@ -128,7 +128,7 @@ const PageLayout: React.FC<Props> = ({
         {SOCIAL_MENUS.map((menu, i) => {
           return (
             <div key={i}>
-              <AnimatedLink {...menu} simplerLink />
+              <AnimatedLink {...menu} simplerLink target="_blank" />
             </div>
           );
         })}

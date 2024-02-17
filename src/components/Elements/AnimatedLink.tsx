@@ -13,6 +13,7 @@ interface Props {
   linkNumber?: number;
   isActive?: boolean;
   nonRedirecting?: boolean;
+  target?: "_blank" | "";
 }
 
 const AnimatedLink: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const AnimatedLink: React.FC<Props> = ({
   linkNumber,
   isActive = false,
   nonRedirecting = false,
+  target = "",
 }) => {
   const simplerClass = styles[simplerLink ? "--simpler" : ""];
   const activeClass = styles[isActive ? "--active" : ""];
@@ -34,6 +36,7 @@ const AnimatedLink: React.FC<Props> = ({
       onClick={(e) => {
         onLinkClick?.(linkNumber, e);
       }}
+      target={target}
     >
       {title}
     </a>
@@ -44,6 +47,7 @@ const AnimatedLink: React.FC<Props> = ({
       onClick={(e) => {
         onLinkClick?.(linkNumber, e);
       }}
+      target={target}
     >
       {title}
     </Link>

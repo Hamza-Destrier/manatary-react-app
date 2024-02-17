@@ -38,7 +38,7 @@ const FooterWork = () => {
             {SOCIAL_MENUS.map((menu, i) => {
               return (
                 <div key={i} className={styles["social-media-link"]}>
-                  <AnimatedLink {...menu} simplerLink />
+                  <AnimatedLink {...menu} simplerLink target="_blank" />
                 </div>
               );
             })}
