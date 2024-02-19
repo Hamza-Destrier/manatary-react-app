@@ -28,8 +28,8 @@ export const MENUS: IMenu[] = menus.map((title, i) => ({
 }));
 
 export const SOCIAL_MENUS = [
-  { title: "Linkedin", link: "https://www.instagram.com/mantaraydigital/" },
-  { title: "Instagram", link: "https://www.facebook.com/mantaraydigital" },
+  { title: "Instagram", link: "https://www.instagram.com/mantaraydigital/" },
+  { title: "Facebook", link: "https://www.facebook.com/mantaraydigital" },
   // { title: "Twitter", link: "#" },
   // { title: "Behance", link: "#" },
   // { title: "Dribble", link: "#" },
