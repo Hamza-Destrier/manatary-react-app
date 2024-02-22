@@ -6,7 +6,6 @@ import { FreeMode, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
-import { BlogsCardResponse } from "@/types";
 import TextWithCircle from "./TextWithCircle";
 import Image from "next/image";
 import greenBlur from "/public/assets/common/blur-2.png";
@@ -22,11 +21,9 @@ const CardsCarousel = ({ blurImg }: { blurImg?: "white" | "green" }) => {
 
       <div className={styles["cards-carousel__bg-text"]}>BLOGS</div>
 
-      {blurImg && (
-        <div className={styles["cards-carousel__img-blur"]}>
-          <Image src={blurImg == "green" ? greenBlur : whiteBlur} alt="" />
-        </div>
-      )}
+      <div className={styles["cards-carousel__img-blur"]}>
+        <Image src={blurImg == "white" ? whiteBlur : greenBlur} alt="" />
+      </div>
 
       <Swiper
         breakpoints={{

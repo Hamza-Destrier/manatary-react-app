@@ -344,6 +344,7 @@
 
 .cards-carousel {
   position: relative;
+  padding: 200px 0;
   &__header {
     width: 90%;
     max-width: 1344px;
@@ -358,9 +359,8 @@
     z-index: 3;
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    top: -200px;
-    top: 20px;
+    top: 50%;
+    transform: translate(-50%, -50%);
     font-size: 500px;
     line-height: 500px;
     font-size: 32.5vw;
