@@ -27,6 +27,11 @@
     position: relative;
     display: flex;
     align-items: center;
+    // a {
+    //   &:hover {
+    //     text-decoration: underline !important;
+    //   }
+    // }
   }
   &__left {
     text-align: right;
@@ -335,11 +340,52 @@
   }
 }
 
+// cards-carousel
+
+.cards-carousel {
+  position: relative;
+  &__header {
+    width: 90%;
+    max-width: 1344px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  &__bg-text {
+    color: #fff;
+    text-transform: uppercase;
+    font-family: $ff-bebas;
+    pointer-events: none;
+    z-index: 3;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -200px;
+    top: 20px;
+    font-size: 500px;
+    line-height: 500px;
+    font-size: 32.5vw;
+    line-height: 32.5vw;
+  }
+  .swiper-container-classname {
+    position: relative;
+    z-index: 5;
+  }
+
+  &__img-blur {
+    position: absolute;
+    left: 50%;
+    top: 0px;
+    // transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
+    z-index: 2;
+  }
+}
+
 .swiper-container-classname {
   & > [class^="swiper-pagination"] {
     span {
-      // background-color: $secondary-color;
-      background-color: #fff;
+      background-color: $secondary-color;
+      // background-color: #fff;
     }
   }
 }
@@ -353,7 +399,7 @@
 
 .slider-blog-card {
   min-height: 300px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   .card__title {
     line-height: 55px;
   }

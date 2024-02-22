@@ -2,8 +2,6 @@
 import React from "react";
 import PageLayout from "../Elements/PageLayout";
 import styles from "./test.module.scss";
-import HorizontalScroll from "../Elements/HorizontalScroll";
-import { ALL_BLOGS } from "../Blogs/blogsData";
 import HorizontalLine from "../Elements/HorizontalLine";
 import CardsCarousel from "../Elements/CardsCarousel";
 
@@ -24,7 +22,7 @@ const Test = () => {
           // blurImg="white"
           blurImg="green"
         /> */}
-        <CardsCarousel blogCards={ALL_BLOGS} />
+        <CardsCarousel />
       </div>
       <HorizontalLine />
       <div className={styles["lower"]}>lower</div>
