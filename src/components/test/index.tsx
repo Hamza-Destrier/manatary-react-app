@@ -24,7 +24,7 @@ const Test = () => {
           // blurImg="white"
           blurImg="green"
         /> */}
-        <CardsCarousel />
+        <CardsCarousel blogCards={ALL_BLOGS} />
       </div>
       <HorizontalLine />
       <div className={styles["lower"]}>lower</div>

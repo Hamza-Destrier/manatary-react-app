@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "@/styles/elements.module.scss";
 import Card from "./Card";
-import { ALL_BLOGS } from "../Blogs/blogsData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
+import { BlogsCardResponse } from "@/types";
 
-const CardsCarousel = () => {
+const CardsCarousel = ({ blogCards }: { blogCards: BlogsCardResponse[] }) => {
   return (
     <Swiper
       breakpoints={{
@@ -34,8 +34,10 @@ const CardsCarousel = () => {
         paddingLeft: "20px",
       }}
       wrapperClass={styles["carousel-wrapper-classname"]}
+      className={styles["swiper-container-classname"]}
+      slideActiveClass={styles['qwerasdfzxcv']}
     >
-      {ALL_BLOGS.map(({ id, details }, i) => {
+      {blogCards.map(({ id, details }, i) => {
         const cardProps = {
           title: details.title,
           description: details.subTitle,
@@ -43,7 +45,7 @@ const CardsCarousel = () => {
         };
 
         return (
-          <SwiperSlide key={id} className={styles["asdfasdfasdf"]}>
+          <SwiperSlide key={id}>
             <Card
               {...cardProps}
               link={"/blogs/" + id}

@@ -193,7 +193,7 @@
   min-width: 300px;
   width: 440px;
   max-width: 85vw;
-  height: 100%;
+  // height: 100%;
   // cursor: pointer;
   // &:hover {
   //   background-color: $secondary-color;
@@ -332,6 +332,22 @@
       min-width: 33vw;
       flex-shrink: 0;
     }
+  }
+}
+
+.swiper-container-classname {
+  & > [class^="swiper-pagination"] {
+    span {
+      // background-color: $secondary-color;
+      background-color: #fff;
+    }
+  }
+}
+
+.carousel-wrapper-classname {
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
   }
 }
 
