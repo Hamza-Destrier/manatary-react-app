@@ -63,7 +63,7 @@ const allProjectsData = [
 
 const projectsCount = ALL_WORKS.length;
 
-const ThinArrow = ({
+export const ThinArrow = ({
   isLeft = false,
   handleClick,
 }: {

@@ -5,13 +5,14 @@ import styles from "./test.module.scss";
 import HorizontalScroll from "../Elements/HorizontalScroll";
 import { ALL_BLOGS } from "../Blogs/blogsData";
 import HorizontalLine from "../Elements/HorizontalLine";
+import CardsCarousel from "../Elements/CardsCarousel";
 
 const Test = () => {
   return (
     <PageLayout>
       <div className={styles["upper"]}>upper</div>
       <div className={styles["center"]}>
-        <HorizontalScroll
+        {/* <HorizontalScroll
           cards={ALL_BLOGS.slice(0).map(({ details }, i) => ({
             title: details.title,
             description: details.subTitle,
@@ -22,7 +23,8 @@ const Test = () => {
           titleFontSize={500}
           // blurImg="white"
           blurImg="green"
-        />
+        /> */}
+        <CardsCarousel />
       </div>
       <HorizontalLine />
       <div className={styles["lower"]}>lower</div>

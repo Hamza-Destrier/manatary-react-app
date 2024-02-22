@@ -2,7 +2,7 @@
 
 .upper,
 .lower {
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,4 +11,8 @@
   font-family: $ff-abel;
   color: $secondary-color;
   text-transform: uppercase;
+}
+
+.center {
+  padding: 20vh 0vw;
 }

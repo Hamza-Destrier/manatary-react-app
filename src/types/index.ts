@@ -19,6 +19,8 @@ export interface CardProps {
 export interface ExtendedCardProps extends CardProps {
   isActive?: boolean;
   onCardClick?: (x?: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  link?: string;
+  cardClassName?: string;
 }
 
 export interface ContentParagraph {
