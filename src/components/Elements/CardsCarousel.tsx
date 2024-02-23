@@ -54,6 +54,7 @@ const CardsCarousel = ({ blurImg }: { blurImg?: "white" | "green" }) => {
         }}
         wrapperClass={styles["carousel-wrapper-classname"]}
         className={styles["swiper-container-classname"]}
+        grabCursor
       >
         {ALL_BLOGS.map(({ id, details }, i) => {
           const cardProps = {
